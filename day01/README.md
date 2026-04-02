@@ -28,7 +28,7 @@ Key demos (all using real GPT-2):
 
 ## Next up
 
-Day 02: Go deep into understanding how inference works without any libraries — building tokenization, forward pass, and autoregressive decoding from scratch.
+Day 02: Building the entire inference pipeline from scratch — tokenization, forward pass, and autoregressive decoding — without any libraries, to understand what the model actually computes inside each step.
 
 ## References
 
