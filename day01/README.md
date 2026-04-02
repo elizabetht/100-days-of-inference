@@ -19,7 +19,9 @@ The KV cache converts attention from O(n^2) to O(n) per decode step — without 
 Notebook: [`llm-inference-mechanics.ipynb`](./llm-inference-mechanics.ipynb)
 
 Key demos:
-- Scaled dot-product attention from scratch with causal masking visualization
+- Step-by-step attention walkthrough: query scores each key, softmax weights, weighted sum of values
+- With-cache vs without-cache ops comparison showing where the savings come from
+- sqrt(d_k) scaling visualization: why unscaled attention collapses to one-hot
 - KV cache memory calculator for real model configs (Llama-3-8B/70B, Qwen2.5-7B)
 - Full sampling pipeline: temperature + top-k + top-p with side-by-side distribution plots
 - Autoregressive decode loop with KV cache growth tracking
