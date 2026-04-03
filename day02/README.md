@@ -8,14 +8,12 @@
 
 ## Notebooks
 
-Four ~20-minute sessions. Each one focuses on a single concept, uses real GPT-2 weights, and builds on the previous.
+Two ~20-minute sessions. Each one focuses on a single concept, uses real GPT-2 weights, and builds on the previous.
 
 | # | Notebook | What You Build |
 |---|----------|---------------|
 | 2a | [`01-whats-inside-a-model.ipynb`](./01-whats-inside-a-model.ipynb) | Download GPT-2, parse SafeTensors by hand, explore every weight tensor |
 | 2b | [`02-tokenization.ipynb`](./02-tokenization.ipynb) | BPE tokenizer from scratch — encoding, decoding, merge tracing |
-| 2c | [`03-embeddings.ipynb`](./03-embeddings.ipynb) | Token + position embeddings, cosine similarity, what vectors mean |
-| 2d | [`04-attention.ipynb`](./04-attention.ipynb) | Scaled dot-product attention, causal mask, multi-head — with real weights |
 
 ## Setup
 
