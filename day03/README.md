@@ -1,26 +1,20 @@
 # Day 03
 
-**Topic:** Embeddings — From Integers to Vectors
-
-**Date:** 2026-04-04
-
+**Topic:** Mixture of Experts (MoE) Routing
+**Date:** 2026-04-06
 **Layer:** Runtime
 
 ## What I explored
-
-Traced the full embedding pipeline in GPT-2 using raw numpy and real model weights. Loaded the two embedding tables (`wte` and `wpe`) from `model.safetensors`, looked up token vectors by ID, added position vectors, and verified that cosine similarity captures semantic relationships (king/queen: 0.66, GPU/CPU: 0.68) and positional proximity.
+Studied how MoE layers replace dense FFNs with N sparse experts, routing each token to only top-K of them via a learned gating network. Implemented a complete MoE layer with top-K routing, load balancing loss, and parameter efficiency analysis comparing real model configs (Llama-3-8B vs Mixtral 8x7B).
 
 ## Key insight
-
-Token embedding is a table lookup, not a matrix multiplication — `wte[token_id]` gives you the 768-dim vector. Position embedding (`wpe`) adds location awareness so the model can distinguish word order. The input to the first transformer block is simply `wte[token_ids] + wpe[:seq_len]`.
+MoE achieves 4x more parameters than a dense model while using the same FLOPs per token — quality scales with total parameters, but inference cost only scales with active parameters.
 
 ## Code / experiment
-
-Notebook: [`embeddings.ipynb`](./embeddings.ipynb)
-
-Key demo: loads GPT-2's wte (50257 × 768) and wpe (1024 × 768) tables, embeds a sentence end-to-end, measures cosine similarity between word pairs, and shows position similarity decay with distance.
+Notebook: [`moe-routing.ipynb`](./moe-routing.ipynb)
+Key demo: Expert load distribution visualization under balanced vs collapsed routing
 
 ## References
-
-- *Inference Engineering* Ch 2.2.1 (pp. 49–50) — Model architecture, config.json
-- *Inference Engineering* Ch 2.2.2 (pp. 50–51) — Embedding layer, transformer block structure
+- *Inference Engineering* Ch 2.2.4 (Philip Kiely, Baseten Books 2026)
+- Shazeer et al. (2017), "Outrageously Large Neural Networks"
+- Fedus et al. (2021), "Switch Transformers"
