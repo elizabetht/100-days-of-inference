@@ -1,37 +1,15 @@
-# Day 04
+# Day 04 — Attention
 
-**Topic:** Transformer Blocks & Attention Deep Dive
+Embeddings turn tokens into vectors, but each token is still computed in isolation. Attention is what lets tokens relate to one another in context.
 
-**Date:** 2026-04-06
+Each token creates a Q (Query), K (Key), and V (Value). Query-Key scores decide relevance, softmax turns those into probabilities, and the model uses them to mix the right Values. In GPT-style models, a causal mask ensures each token can only attend to earlier tokens.
 
-**Layer:** Runtime
+GPT-2 does this through multi-head attention: several attention patterns running in parallel, each learning different roles. Some track local relationships, others gather broader context.
 
-## What I explored
+The catch is cost: attention scales as O(n²). Double the sequence length, and compute grows 4x. That bottleneck is why optimizations like FlashAttention, KV caching, and prefix caching matter so much.
 
-Built attention from scratch using real GPT-2 weights: Q/K/V projections, scaled dot-product attention, causal masking, multi-head splitting, output projection with residual connections. Also implemented the MLP (feed-forward) sublayer — expand to 4x, GELU activation, compress back — to run complete transformer blocks through all 12 layers and trace how attention patterns evolve from early to late layers.
+Tried a coreference example: "The dog chased the ball because it was excited." In small GPT-2, attention struggles to link "it" back to "dog." Same mechanism, just less capacity. Larger models show much stronger signals.
 
-Visualized GELU vs ReLU to understand why non-linearity matters: without it, stacked linear layers collapse into a single matrix multiply and depth adds no capacity.
+The notebook (https://github.com/elizabetht/100-days-of-inference/blob/main/day04/attention.ipynb) builds this from scratch using real GPT-2 weights in pure NumPy.
 
-Compared attention variants used in modern LLMs: MHA (GPT-2/3), MQA (PaLM, Falcon), and GQA (Llama 2/3, Mistral) — same core equation, different KV sharing strategies that reduce cache size during inference.
-
-## Key insight
-
-Attention is a learned weighted lookup — each token queries all prior tokens, and the causal mask enforces autoregressive generation. The quadratic O(n²) cost in sequence length is the fundamental bottleneck that drives every major inference optimization (FlashAttention, KV cache, prefix caching).
-
-Tested coreference resolution by probing whether "it" attends to "dog" in *"The dog chased the ball because it was excited."* GPT-2 doesn't solve it — attention collapses into the BOS attention sink (first token absorbs 55–70% of weight). The attention mechanism is identical across model sizes; the difference is whether the learned weights are rich enough for semantic reasoning vs. falling back on positional shortcuts.
-
-## Code / experiment
-
-Notebook: [`attention.ipynb`](./attention.ipynb)
-
-Key demos:
-- Multi-head attention with real GPT-2 weights — visualizes all 12 heads and their entropy-based specialization (focused vs. spread)
-- Complete transformer blocks (attention + MLP) through all 12 layers
-- GELU vs ReLU visualization with annotated comparison
-- Coreference probe across layers showing the BOS attention sink pattern
-
-## References
-
-- *Inference Engineering* Ch 2.2.2–2.2.3 (pp. 50–53)
-- Vaswani et al., "Attention Is All You Need" (2017)
-- Dao et al., "FlashAttention" (2022)
+#LLM #Inference #Attention #GPT2 #Transformers #FlashAttention #DeepLearning #AI #MLEngineering #100DaysOfInference

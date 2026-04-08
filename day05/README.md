@@ -1,33 +1,15 @@
-# Day 05
+# Day 05 — KV Cache
 
-**Topic:** KV Cache — The Most Important Optimization in Inference
-**Date:** 2026-04-08
-**Layer:** Runtime
+Autoregressive generation has a hidden cost: at each decode step, the model re-runs attention over the entire sequence from scratch. Token 0's Key and Value vectors at step 5 are identical to step 500 — but they get recomputed every time. Total work across N steps: 1 + 2 + 3 + ... + N = O(N²).
 
-## What I explored
+The fix is the KV cache. Cache every past token's K and V after computing them once. On each new step, compute Q/K/V for the single new token only, concatenate with the cache, and run attention. The query still sees the full history — we just don't redo work for positions that are already done. The optimization is mathematically lossless.
 
-Autoregressive generation without a KV cache is O(n²): at decode step N, the model re-runs attention over the full N-token sequence from scratch. Every past token's K and V projections get recomputed even though those tokens haven't changed.
+Benchmarked this with real GPT-2 weights in pure NumPy. Without cache, per-token latency grows linearly with context length. With cache, it stays near-constant. At 200 tokens of context, the cached path is already 2.6x faster — and the gap keeps widening.
 
-The fix is mechanical: cache K and V for all past tokens. On each new decode step, compute Q/K/V for the single new token only, concatenate the new K/V with the cached K/V, then run attention. The query still attends over the full history — we just don't recompute K and V for positions that are already done.
+The tradeoff is memory. The formula: 2 x n_layers x n_embd x seq_len x bytes_per_element. For a 70B model at 32K context in float16, that's ~160 GB per request — more than a single H100. Multiply by concurrent users and GPU memory, not compute, becomes the binding constraint.
 
-Built this from scratch using GPT-2 weights (pure numpy, no torch):
-- `prefill()` — processes the full prompt in one pass and populates the KVCache
-- `KVCache` class — per-layer K/V store with append and retrieval
-- `decode_step()` — single-token forward pass that reads from and updates the cache
-- Verified that cached and no-cache generation produce identical output
+This one data structure is why PagedAttention (vLLM), prefix caching, and KV quantization exist. Every major inference serving system is, in significant part, a KV cache management system.
 
-## Key insight
+The notebook (https://github.com/elizabetht/100-days-of-inference/blob/main/day05/kv-cache.ipynb) builds the cache from scratch, verifies identical output, benchmarks the speedup, and computes memory costs from GPT-2 to GPT-3 scale.
 
-KV cache is the canonical time-space tradeoff in inference. It converts O(n²) compute into O(n) memory growth. The memory formula is `2 × n_layers × n_embd × seq_len × bytes_per_element`. For a 70B model at 32K context in float16, that's ~160 GB per request — more than a single H100's memory. This is why every production serving system (vLLM, TGI, TensorRT-LLM) is, in significant part, a KV cache management system. PagedAttention, prefix caching, and KV quantization all exist to manage this one data structure.
-
-## Code / experiment
-
-Notebook: [`kv-cache.ipynb`](./kv-cache.ipynb)
-
-Key demo: benchmark comparing per-token decode latency with vs without KV cache across prompt lengths 10–200 tokens. The no-cache latency grows linearly with sequence length; the cached decode step stays near-constant (only one new token's projections are computed). Speedup grows with context length. The notebook also computes the exact KV cache memory footprint for models from GPT-2 to GPT-3 scale at various sequence lengths, showing why memory — not compute — is the binding constraint for long-context serving.
-
-## References
-
-- *Inference Engineering* Ch 5.3 (pp. 136-141) — Philip Kiely, Baseten Books 2026
-- [PagedAttention](https://arxiv.org/abs/2309.06180) — Kwon et al., SOSP 2023
-- [FlashAttention-2](https://arxiv.org/abs/2307.08691) — Dao 2023
+#LLM #Inference #KVCache #GPT2 #PagedAttention #vLLM #DeepLearning #AI #MLEngineering #100DaysOfInference

@@ -1,28 +1,19 @@
-# Day 02
+# Day 02 — What's Inside a Model
 
-**Topic:** Inference from Scratch — No Libraries
+A model file is not a program. It's a container of numbered arrays.
 
-**Date:** 2026-04-02
+GPT-2's weight file is 523 MB. Inside: a JSON header mapping tensor names to byte offsets, followed by raw floats packed end to end. The entire thing parses with Python's struct module and numpy. No ML library needed.
 
-**Layer:** Runtime
+148 tensors. 124M learned parameters. The architecture repeats: two embedding tables up front, 12 identical transformer blocks, one final layer norm. Every block has the same structure: attention projections, FFN up/down projections, two layer norms.
 
-## Notebooks
+The parameter distribution is lopsided. FFN holds 41%. Attention holds 30%. Embeddings hold 28%. Layer norms hold effectively 0%. When quantization or pruning comes up, FFN is where the weight lives.
 
-Two ~20-minute sessions. Each one focuses on a single concept, uses real GPT-2 weights, and builds on the previous.
+The front door to all of this is tokenization. GPT-2 uses Byte Pair Encoding: start with individual bytes, merge the most frequent adjacent pair, repeat 50,000 times. At encoding time, the algorithm scans for adjacent pairs, picks the lowest-ranked merge, applies it, repeats. "the" becomes 1 token. "Kubernetes" becomes 4 subword pieces. Deterministic. No neural network involved.
 
-| # | Notebook | What You Build |
-|---|----------|---------------|
-| 2a | [`01-whats-inside-a-model.ipynb`](./01-whats-inside-a-model.ipynb) | Download GPT-2, parse SafeTensors by hand, explore every weight tensor |
-| 2b | [`02-tokenization.ipynb`](./02-tokenization.ipynb) | BPE tokenizer from scratch — encoding, decoding, merge tracing |
+Token count determines forward passes. Fewer tokens = lower latency = lower cost. This is why newer models push to 128K+ vocabularies — more merge rules, better compression.
 
-## Setup
+Runnable notebooks:
+- What's inside a model: https://github.com/elizabetht/100-days-of-inference/blob/main/day02/01-whats-inside-a-model.ipynb
+- Tokenization from scratch: https://github.com/elizabetht/100-days-of-inference/blob/main/day02/02-tokenization.ipynb
 
-Run notebook 01 first — it downloads GPT-2 weights into `gpt2_weights/`. All subsequent notebooks read from that directory. No pip installs beyond numpy.
-
-## Key insight
-
-A model is just a container of numbered arrays. Inference is indexing into those arrays, multiplying them together, and applying simple math functions. There is no magic — just matmuls, softmax, and a loop.
-
-## References
-
-- *Inference Engineering* Ch 2.1–2.2 (pp. 42–54) — Philip Kiely, Baseten Books 2026
+#LLM #Inference #SafeTensors #GPT2 #Tokenization #BPE #DeepLearning #AI #MLEngineering #100DaysOfInference
