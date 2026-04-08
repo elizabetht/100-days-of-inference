@@ -21,24 +21,26 @@ Inference engineering is the discipline of serving generative AI models in produ
 
 Getting the most out of one GPU. This is where most of the leverage lives.
 
-| Topic | Book |
-|-------|------|
-| [LLM Inference Mechanics: Tokenization, KV State, Autoregressive Decoding](./day01/) | Ch 2.2 |
-| [Transformer Blocks & Attention Deep Dive](./day02/) | Ch 2.2.2–2.2.3 |
-| [Mixture of Experts (MoE) Routing](./day03/) | Ch 2.2.4 |
-| [Ops:Byte Ratio & Arithmetic Intensity](./day04/) | Ch 2.4 |
-| [CUDA Kernels, Kernel Selection & Kernel Fusion](./day05/) | Ch 4.1 |
-| [PyTorch, Model File Formats, ONNX & TensorRT](./day06/) | Ch 4.2 |
-| [vLLM: PagedAttention & Continuous Batching](./day07/) | Ch 4.3.1 |
-| [SGLang: RadixAttention & Structured Outputs](./day08/) | Ch 4.3.2 |
-| [TensorRT-LLM: Compilation & Plugin System](./day09/) | Ch 4.3.3 |
-| [NVIDIA Dynamo: Disaggregated Serving](./day10/) | Ch 4.4 |
-| [Quantization: Number Formats (FP8, INT8, INT4)](./day11/) | Ch 5.1.1 |
-| [Quantization: GPTQ, AWQ, SmoothQuant](./day12/) | Ch 5.1.2 |
-| [Speculative Decoding: Draft-Target, Medusa, EAGLE](./day13/) | Ch 5.2 |
-| [KV Cache: Prefix Caching & Cache-Aware Routing](./day14/) | Ch 5.3 |
-| [Model Parallelism: Tensor & Expert](./day15/) | Ch 5.4 |
-| [Disaggregation: Prefill/Decode Split](./day16/) | Ch 5.5 |
+| Day | Topic | Book |
+|-----|-------|------|
+| [01](./day01/) | LLM Inference Mechanics: End-to-end text generation | Ch 2.2 |
+| [02](./day02/) | Inference from Scratch: Model internals & tokenization | Ch 2.2 |
+| [03](./day03/) | Embeddings: From integers to vectors | Ch 2.2.1 |
+| [04](./day04/) | Transformer Blocks & Attention Deep Dive | Ch 2.2.2–2.2.3 |
+| 05 | Ops:Byte Ratio & Arithmetic Intensity | Ch 2.4 |
+| 06 | Mixture of Experts (MoE) Routing | Ch 2.2.4 |
+| 07 | CUDA Kernels, Kernel Selection & Kernel Fusion | Ch 4.1 |
+| 08 | PyTorch, Model File Formats, ONNX & TensorRT | Ch 4.2 |
+| 09 | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
+| 10 | SGLang: RadixAttention & Structured Outputs | Ch 4.3.2 |
+| 11 | TensorRT-LLM: Compilation & Plugin System | Ch 4.3.3 |
+| 12 | NVIDIA Dynamo: Disaggregated Serving | Ch 4.4 |
+| 13 | Quantization: Number Formats (FP8, INT8, INT4) | Ch 5.1.1 |
+| 14 | Quantization: GPTQ, AWQ, SmoothQuant | Ch 5.1.2 |
+| 15 | Speculative Decoding: Draft-Target, Medusa, EAGLE | Ch 5.2 |
+| 16 | KV Cache: Prefix Caching & Cache-Aware Routing | Ch 5.3 |
+| 17 | Model Parallelism: Tensor & Expert | Ch 5.4 |
+| 18 | Disaggregation: Prefill/Decode Split | Ch 5.5 |
 
 ### Phase 2 — Infrastructure: Scaling Across Clusters
 
@@ -211,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 1 / 16 |
+| Runtime Layer | 4 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -219,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **1 / 100** |
+| **Total** | **4 / 102** |
 
 ---
 
