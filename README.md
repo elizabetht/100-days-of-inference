@@ -27,8 +27,8 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [02](./day02/) | Inference from Scratch: Model internals & tokenization | Ch 2.2 |
 | [03](./day03/) | Embeddings: From integers to vectors | Ch 2.2.1 |
 | [04](./day04/) | Transformer Blocks & Attention Deep Dive | Ch 2.2.2–2.2.3 |
-| 05 | Ops:Byte Ratio & Arithmetic Intensity | Ch 2.4 |
-| 06 | Mixture of Experts (MoE) Routing | Ch 2.2.4 |
+| [05](./day05/) | KV Cache | Ch 2.2 |
+| [06](./day06/) | Ops:Byte Ratio & Arithmetic Intensity | Ch 2.4 |
 | 07 | CUDA Kernels, Kernel Selection & Kernel Fusion | Ch 4.1 |
 | 08 | PyTorch, Model File Formats, ONNX & TensorRT | Ch 4.2 |
 | 09 | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 4 / 18 |
+| Runtime Layer | 6 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **4 / 102** |
+| **Total** | **6 / 102** |
 
 ---
 
