@@ -29,7 +29,7 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [04](./day04/) | Transformer Blocks & Attention Deep Dive | Ch 2.2.2–2.2.3 |
 | [05](./day05/) | KV Cache | Ch 2.2 |
 | [06](./day06/) | Ops:Byte Ratio & Arithmetic Intensity | Ch 2.4 |
-| 07 | CUDA Kernels, Kernel Selection & Kernel Fusion | Ch 4.1 |
+| [07](./day07/) | CUDA Kernels, Kernel Selection & Kernel Fusion | Ch 4.1 |
 | 08 | PyTorch, Model File Formats, ONNX & TensorRT | Ch 4.2 |
 | 09 | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
 | 10 | SGLang: RadixAttention & Structured Outputs | Ch 4.3.2 |
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 6 / 18 |
+| Runtime Layer | 7 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **6 / 102** |
+| **Total** | **7 / 102** |
 
 ---
 
