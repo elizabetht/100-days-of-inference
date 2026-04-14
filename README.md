@@ -31,7 +31,7 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [06](./day06/) | Ops:Byte Ratio & Arithmetic Intensity | Ch 2.4 |
 | [07](./day07/) | CUDA Kernels, Kernel Selection & Kernel Fusion | Ch 4.1 |
 | [08](./day08/) | PyTorch, Model File Formats, ONNX & TensorRT | Ch 4.2 |
-| 09 | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
+| [09](./day09/) | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
 | 10 | SGLang: RadixAttention & Structured Outputs | Ch 4.3.2 |
 | 11 | TensorRT-LLM: Compilation & Plugin System | Ch 4.3.3 |
 | 12 | NVIDIA Dynamo: Disaggregated Serving | Ch 4.4 |
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 8 / 18 |
+| Runtime Layer | 9 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **8 / 102** |
+| **Total** | **9 / 102** |
 
 ---
 
