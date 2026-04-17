@@ -34,7 +34,7 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [09](./day09/) | vLLM: PagedAttention & Continuous Batching | Ch 4.3.1 |
 | [10](./day10/) | SGLang: RadixAttention & Structured Outputs | Ch 4.3.2 |
 | [11](./day11/) | TensorRT-LLM: Compilation & Plugin System | Ch 4.3.3 |
-| 12 | NVIDIA Dynamo: Disaggregated Serving | Ch 4.4 |
+| [12](./day12/) | NVIDIA Dynamo: Disaggregated Serving | Ch 4.4 |
 | 13 | Quantization: Number Formats (FP8, INT8, INT4) | Ch 5.1.1 |
 | 14 | Quantization: GPTQ, AWQ, SmoothQuant | Ch 5.1.2 |
 | 15 | Speculative Decoding: Draft-Target, Medusa, EAGLE | Ch 5.2 |
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 11 / 18 |
+| Runtime Layer | 12 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **11 / 102** |
+| **Total** | **12 / 102** |
 
 ---
 
