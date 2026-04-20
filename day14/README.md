@@ -1,0 +1,13 @@
+# Day 14 — Quantization Algorithms: GPTQ, AWQ, SmoothQuant
+
+Naive quantization rounds each weight independently to the nearest representable value. This works acceptably for FP16→BF16 but fails badly at INT4 — the rounding error compounds across layers. GPTQ, AWQ, and SmoothQuant each solve this differently.
+
+GPTQ (Generalized Post-Training Quantization) quantizes weights layer by layer, using the inverse Hessian to compensate for each weight's rounding error. When rounding weight w to the nearest INT4 value introduces an error ε = q - w, GPTQ immediately adjusts the remaining unquantized weights in that column to absorb ε: W[:,j+1:] -= ε × H_inv[j, j+1:] / H_inv[j,j]. The result: GPTQ INT4 achieves near-FP16 perplexity on most benchmarks, while naive round-to-nearest (RTN) INT4 shows significant degradation.
+
+AWQ (Activation-Aware Weight Quantization) takes a different angle. Not all weights are equally important — the ones connected to large activation channels carry more signal. AWQ scales up those weights before quantization (making them use more of the INT4 range) and scales down the activations correspondingly. The net effect is identical to the original computation but with much lower quantization error on the most important weight dimensions.
+
+SmoothQuant targets the activation-weight joint distribution problem. Activations in LLMs have extreme outliers — values 100× larger than typical. INT8 activation quantization fails because a single outlier forces the scale factor to accommodate it, squashing all other values. SmoothQuant migrates the quantization difficulty from activations to weights by multiplying activations by a per-channel smoothing factor and dividing weights by the same factor — activations become easier to quantize, weights absorb the difficulty.
+
+The notebook ([quantization-gptq-awq-smoothquant.ipynb](./quantization-gptq-awq-smoothquant.ipynb)) implements all three algorithms, compares output error against naive RTN, and benchmarks each on a small transformer layer.
+
+#LLM #Inference #GPTQ #AWQ #SmoothQuant #Quantization #DeepLearning #AI #MLEngineering #100DaysOfInference

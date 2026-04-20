@@ -36,7 +36,7 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [11](./day11/) | TensorRT-LLM: Compilation & Plugin System | Ch 4.3.3 |
 | [12](./day12/) | NVIDIA Dynamo: Disaggregated Serving | Ch 4.4 |
 | [13](./day13/) | Quantization: Number Formats (FP8, INT8, INT4, NVFP4) | Ch 5.1.1 |
-| 14 | Quantization: GPTQ, AWQ, SmoothQuant | Ch 5.1.2 |
+| [14](./day14/) | Quantization Algorithms: GPTQ, AWQ, SmoothQuant | Ch 5.1.2 |
 | 15 | Speculative Decoding: Draft-Target, Medusa, EAGLE | Ch 5.2 |
 | 16 | KV Cache: Prefix Caching & Cache-Aware Routing | Ch 5.3 |
 | 17 | Model Parallelism: Tensor & Expert | Ch 5.4 |
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 13 / 18 |
+| Runtime Layer | 14 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **13 / 102** |
+| **Total** | **14 / 102** |
 
 ---
 
