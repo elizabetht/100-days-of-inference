@@ -40,7 +40,7 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 | [15](./day15/) | Speculative Decoding: Draft-Target, Medusa, EAGLE | Ch 5.2 |
 | [16](./day16/) | KV Cache: Prefix Caching & Cache-Aware Routing | Ch 5.3 |
 | [17](./day17/) | Model Parallelism: Tensor, Expert, Pipeline & Data | Ch 5.4 |
-| 18 | Disaggregation: Prefill/Decode Split | Ch 5.5 |
+| [18](./day18/) | Disaggregation: Prefill/Decode Split | Ch 5.5 |
 
 ### Phase 2 — Infrastructure: Scaling Across Clusters
 
@@ -213,7 +213,7 @@ jupyter notebook
 
 | Phase | Status |
 |-------|--------|
-| Runtime Layer | 17 / 18 |
+| Runtime Layer | 18 / 18 |
 | Infrastructure Layer | 0 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
@@ -221,7 +221,7 @@ jupyter notebook
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **17 / 102** |
+| **Total** | **18 / 102** |
 
 ---
 
