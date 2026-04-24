@@ -49,8 +49,8 @@ Getting the most out of many GPUs across clouds and regions.
 | Topic | Book |
 |-------|------|
 | [GPU Architecture: SMs, Memory Hierarchy, HBM](./day19/) | Ch 3.1 |
-| [GPU Generations: Hopper, Ada, Blackwell, Rubin](./day18/) | Ch 3.2 |
-| [Multi-GPU Instances & Multi-Instance GPU (MIG)](./day19/) | Ch 3.3 |
+| [GPU Generations: Hopper, Ada, Blackwell, Rubin](./day20/) | Ch 3.2 |
+| [Multi-GPU Instances & Multi-Instance GPU (MIG)](./day21/) | Ch 3.3 |
 | [Containerization: Docker & NVIDIA NIMs](./day20/) | Ch 7.1 |
 | [Autoscaling: Concurrency, Batching & Cold Starts](./day21/) | Ch 7.2 |
 | [Routing, Load Balancing & Queueing](./day22/) | Ch 7.2.3 |
@@ -214,14 +214,14 @@ jupyter notebook
 | Phase | Status |
 |-------|--------|
 | Runtime Layer | 18 / 18 |
-| Infrastructure Layer | 1 / 8 |
+| Infrastructure Layer | 3 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
 | Production Systems | 0 / 25 |
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **19 / 102** |
+| **Total** | **21 / 102** |
 
 ---
 
