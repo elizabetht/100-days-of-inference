@@ -46,16 +46,16 @@ Getting the most out of one GPU. This is where most of the leverage lives.
 
 Getting the most out of many GPUs across clouds and regions.
 
-| Topic | Book |
-|-------|------|
-| [GPU Architecture: SMs, Memory Hierarchy, HBM](./day19/) | Ch 3.1 |
-| [GPU Generations: Hopper, Ada, Blackwell, Rubin](./day20/) | Ch 3.2 |
-| [Multi-GPU Instances & Multi-Instance GPU (MIG)](./day21/) | Ch 3.3 |
-| Containerization: Docker & NVIDIA NIMs | Ch 7.1 |
-| Autoscaling: Concurrency, Batching & Cold Starts | Ch 7.2 |
-| Routing, Load Balancing & Queueing | Ch 7.2.3 |
-| Multi-Cloud Capacity Management | Ch 7.3 |
-| Zero-Downtime Deployment & Cost Estimation | Ch 7.4 |
+| Day | Topic | Book |
+|-----|-------|------|
+| [19](./day19/) | GPU Architecture: SMs, Memory Hierarchy, HBM | Ch 3.1 |
+| [20](./day20/) | GPU Generations: Hopper, Ada, Blackwell, Rubin | Ch 3.2 |
+| [21](./day21/) | Multi-GPU Instances & Multi-Instance GPU (MIG) | Ch 3.3 |
+| | Containerization: Docker & NVIDIA NIMs | Ch 7.1 |
+| | Autoscaling: Concurrency, Batching & Cold Starts | Ch 7.2 |
+| | Routing, Load Balancing & Queueing | Ch 7.2.3 |
+| | Multi-Cloud Capacity Management | Ch 7.3 |
+| | Zero-Downtime Deployment & Cost Estimation | Ch 7.4 |
 
 ### Phase 3 — Tooling: Productivity & Observability
 
