@@ -51,11 +51,11 @@ Getting the most out of many GPUs across clouds and regions.
 | [GPU Architecture: SMs, Memory Hierarchy, HBM](./day19/) | Ch 3.1 |
 | [GPU Generations: Hopper, Ada, Blackwell, Rubin](./day20/) | Ch 3.2 |
 | [Multi-GPU Instances & Multi-Instance GPU (MIG)](./day21/) | Ch 3.3 |
-| [Containerization: Docker & NVIDIA NIMs](./day20/) | Ch 7.1 |
-| [Autoscaling: Concurrency, Batching & Cold Starts](./day21/) | Ch 7.2 |
-| [Routing, Load Balancing & Queueing](./day22/) | Ch 7.2.3 |
-| [Multi-Cloud Capacity Management](./day23/) | Ch 7.3 |
-| [Zero-Downtime Deployment & Cost Estimation](./day24/) | Ch 7.4 |
+| Containerization: Docker & NVIDIA NIMs | Ch 7.1 |
+| Autoscaling: Concurrency, Batching & Cold Starts | Ch 7.2 |
+| Routing, Load Balancing & Queueing | Ch 7.2.3 |
+| Multi-Cloud Capacity Management | Ch 7.3 |
+| Zero-Downtime Deployment & Cost Estimation | Ch 7.4 |
 
 ### Phase 3 — Tooling: Productivity & Observability
 
@@ -63,9 +63,9 @@ The instrumentation layer that makes the other two debuggable.
 
 | Topic | Book |
 |-------|------|
-| [Performance Benchmarking: Tooling & Profiling](./day25/) | Ch 4.5 |
-| [Observability: Metrics, Tracing & Dashboards](./day26/) | Ch 7.4.3 |
-| [Client Code: Streaming, Async & Protocol Support](./day27/) | Ch 7.5 |
+| Performance Benchmarking: Tooling & Profiling | Ch 4.5 |
+| Observability: Metrics, Tracing & Dashboards | Ch 7.4.3 |
+| Client Code: Streaming, Async & Protocol Support | Ch 7.5 |
 
 ---
 
