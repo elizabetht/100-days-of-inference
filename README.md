@@ -53,7 +53,7 @@ Getting the most out of many GPUs across clouds and regions.
 | [21](./day21/) | Multi-GPU Instances & Multi-Instance GPU (MIG) | Ch 3.3 |
 | [22](./day22/) | Containerization: Docker & NVIDIA NIMs | Ch 7.1 |
 | [23](./day23/) | Autoscaling: Concurrency, Batching & Cold Starts | Ch 7.2 |
-| | Routing, Load Balancing & Queueing | Ch 7.2.3 |
+| [24](./day24/) | Routing, Load Balancing & Queueing | Ch 7.2.3 |
 | | Multi-Cloud Capacity Management | Ch 7.3 |
 | | Zero-Downtime Deployment & Cost Estimation | Ch 7.4 |
 
@@ -214,14 +214,14 @@ jupyter notebook
 | Phase | Status |
 |-------|--------|
 | Runtime Layer | 18 / 18 |
-| Infrastructure Layer | 5 / 8 |
+| Infrastructure Layer | 6 / 8 |
 | Tooling Layer | 0 / 3 |
 | Deep Implementation | 0 / 23 |
 | Production Systems | 0 / 25 |
 | Modalities | 0 / 10 |
 | Advanced Techniques | 0 / 10 |
 | Capstone | 0 / 5 |
-| **Total** | **23 / 102** |
+| **Total** | **24 / 102** |
 
 ---
 
